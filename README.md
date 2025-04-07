@@ -1,2 +1,2 @@
 # sirtheprogrammer
-<h1 style="color:gold;">sirtheprogrammer</h1>
+<h1 style="background-color:gold;">sirtheprogrammer</h1>
