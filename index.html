@@ -4,183 +4,727 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - sirtheprogrammer</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <title>sirtheprogrammer | Creative Developer & Designer</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
+        :root {
+            --primary: #6c63ff;
+            --primary-dark: #564fd8;
+            --secondary: #ff6584;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gray: #e6e6e6;
+            --dark-gray: #4a4a4a;
+        }
+        
         body {
-            padding-top: 56px;
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            transition: all 0.3s ease;
         }
-
-        .jumbotron {
-            background-color: #f7f7f7;
-            padding: 4rem 2rem;
-            text-align: center;
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
         }
-
-        .hobby {
-            padding: 1rem;
-            border: 1px solid #ddd;
-            margin: 0.5rem;
-            border-radius: 5px;
-            transition: transform 0.2s;
+        
+        /* Navigation */
+        .navbar {
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
-
-        .hobby:hover {
-            transform: scale(1.05);
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
         }
-
-        .theme-dark {
-            background-color: #343a40;
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(255, 101, 132, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-bg-shape {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .shape-1 {
+            top: -200px;
+            right: -200px;
+        }
+        
+        .shape-2 {
+            bottom: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 0.6rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+            padding: 0.6rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(108, 99, 255, 0.3);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-img {
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .about-img:hover {
+            transform: scale(1.02);
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--primary);
             color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
-
-        .theme-light {
-            background-color: #f8f9fa;
-            color: black;
+        
+        /* Hobbies Section */
+        .hobby-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
-
-        .theme-dark .navbar,
-        .theme-dark .footer {
-            background-color: #212529;
+        
+        .hobby-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: rgba(108, 99, 255, 0.2);
         }
-
+        
+        .hobby-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        /* Projects Section */
+        .project-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            background: white;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .project-tag {
+            background-color: var(--gray);
+            color: var(--dark-gray);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        
+        /* Contact Section */
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-control {
+            padding: 0.8rem 1rem;
+            border-radius: 5px;
+            border: 1px solid var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.25rem rgba(108, 99, 255, 0.25);
+        }
+        
+        /* Footer */
         .footer {
-            padding: 1rem 0;
-            text-align: center;
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Dark Mode */
+        .theme-dark {
+            background-color: var(--dark);
+            color: var(--light);
+        }
+        
+        .theme-dark .navbar {
+            background-color: rgba(26, 26, 46, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .theme-dark .hobby-card,
+        .theme-dark .project-card,
+        .theme-dark .contact-form {
+            background-color: #2a2a3e;
+            color: var(--light);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .theme-dark .form-control {
+            background-color: #3a3a4e;
+            border-color: #4a4a5e;
+            color: var(--light);
+        }
+        
+        .theme-dark .project-tag {
+            background-color: #4a4a5e;
+            color: var(--light);
+        }
+        
+        /* Animations */
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
         }
     </style>
 </head>
 
 <body class="theme-light">
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <a class="navbar-brand" href="#">sirtheprogrammer</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#hobbies">Hobbies</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#projects">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-secondary" onclick="toggleTheme()">Toggle Theme</button>
-                </li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">sirtheprogrammer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hobbies">Hobbies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <button class="btn btn-outline-primary btn-sm" onclick="toggleTheme()">
+                            <i class="fas fa-moon"></i> Theme
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Jumbotron -->
-        <div class="jumbotron">
-            <h1 class="display-4">Hello, I'm sirtheprogrammer</h1>
-            <p class="lead">Welcome to my portfolio website</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content animate__animated animate__fadeIn">
+                    <h6 class="text-primary mb-3">HELLO, I'M</h6>
+                    <h1>sirtheprogrammer</h1>
+                    <p class="lead">Creative developer & designer passionate about building beautiful, functional digital experiences that make an impact.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-outline-primary">Contact Me</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block animate__animated animate__fadeIn animate-delay-1">
+                    <img src="https://via.placeholder.com/600x400" alt="Hero Image" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
         </div>
+        <div class="hero-bg-shape shape-1"></div>
+        <div class="hero-bg-shape shape-2"></div>
+    </section>
 
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hi, I'm sirtheprogrammer. I'm passionate about programming, web designing, graphic design, and many other hobbies. I love to create and innovate! I'm always eager to learn new technologies and take on new challenges.</p>
-        </section>
-
-        <!-- Hobbies Section -->
-        <section id="hobbies">
-            <h2>My Hobbies</h2>
-            <div class="row">
-                <div class="col-md-4 hobby">
-                    <i class="fas fa-code fa-3x"></i>
-                    <h3>Programming</h3>
-                    <p>I enjoy solving problems and building applications that make a difference.</p>
+    <!-- About Section -->
+    <section id="about" class="bg-light">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0 animate__animated animate__fadeIn">
+                    <img src="https://via.placeholder.com/500x600" alt="About Image" class="img-fluid about-img">
                 </div>
-                <div class="col-md-4 hobby">
-                    <i class="fas fa-paint-brush fa-3x"></i>
-                    <h3>Web Designing</h3>
-                    <p>Creating visually appealing and user-friendly websites is my passion.</p>
-                </div>
-                <div class="col-md-4 hobby">
-                    <i class="fas fa-pencil-alt fa-3x"></i>
-                    <h3>Graphic Design</h3>
-                    <p>I love designing graphics that communicate ideas and captivate audiences.</p>
-                </div>
-                <!-- Add more hobbies here -->
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>My Projects</h2>
-            <div class="row">
-                <!-- Project 1 -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="project1.jpg" class="card-img-top" alt="Project 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Project 1</h5>
-                            <p class="card-text">Description of project 1.</p>
-                            <a href="#" class="btn btn-primary">View Project</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="project2.jpg" class="card-img-top" alt="Project 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Project 2</h5>
-                            <p class="card-text">Description of project 2.</p>
-                            <a href="#" class="btn btn-primary">View Project</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="project3.jpg" class="card-img-top" alt="Project 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Project 3</h5>
-                            <p class="card-text">Description of project 3.</p>
-                            <a href="#" class="btn btn-primary">View Project</a>
-                        </div>
+                <div class="col-lg-7 animate__animated animate__fadeIn animate-delay-1">
+                    <h3 class="mb-3">Building Digital Experiences That Matter</h3>
+                    <p>I'm a passionate developer and designer with expertise in creating modern web applications and engaging user interfaces. With a background in both programming and design, I bridge the gap between functionality and aesthetics.</p>
+                    <p>My journey in tech started 5 years ago when I built my first website. Since then, I've worked on numerous projects ranging from small business websites to complex web applications, always focusing on creating solutions that are both beautiful and effective.</p>
+                    <p>When I'm not coding, you can find me exploring new design trends, contributing to open source projects, or mentoring aspiring developers.</p>
+                    
+                    <div class="skills-list">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">UI/UX Design</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Photoshop</span>
+                        <span class="skill-tag">Responsive Design</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>You can reach me at <a href="mailto:sirtheprogrammer@gmail.com">sirtheprogrammer@gmail.com</a></p>
-        </section>
-    </div>
+    <!-- Hobbies Section -->
+    <section id="hobbies">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">My Passions</h2>
+            <p class="text-center mb-5 animate__animated animate__fadeIn">These are the things that keep me inspired and motivated</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4 animate__animated animate__fadeIn animate-delay-1">
+                    <div class="hobby-card">
+                        <div class="hobby-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Programming</h3>
+                        <p>I love solving complex problems and building efficient, scalable applications. Currently exploring AI/ML applications in web development.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 animate__animated animate__fadeIn animate-delay-2">
+                    <div class="hobby-card">
+                        <div class="hobby-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Web Design</h3>
+                        <p>Crafting intuitive user interfaces with attention to detail. I believe good design should be both beautiful and functional.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 animate__animated animate__fadeIn animate-delay-3">
+                    <div class="hobby-card">
+                        <div class="hobby-icon">
+                            <i class="fas fa-pencil-alt"></i>
+                        </div>
+                        <h3>Graphic Design</h3>
+                        <p>Creating visual content that communicates ideas effectively. From logos to illustrations, I enjoy the creative process.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 animate__animated animate__fadeIn animate-delay-1">
+                    <div class="hobby-card">
+                        <div class="hobby-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>Music Production</h3>
+                        <p>Composing and producing electronic music helps me think creatively and provides a different kind of problem-solving outlet.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 animate__animated animate__fadeIn animate-delay-2">
+                    <div class="hobby-card">
+                        <div class="hobby-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Reading</h3>
+                        <p>Constantly learning through books on technology, psychology, and business to broaden my perspective.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 animate__animated animate__fadeIn animate-delay-3">
+                    <div class="hobby-card">
+                        <div class="hobby-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>Game Development</h3>
+                        <p>Exploring game design as a way to combine programming, art, and storytelling in interactive experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-light">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">Featured Projects</h2>
+            <p class="text-center mb-5 animate__animated animate__fadeIn">Some of my recent work that I'm proud of</p>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 animate__animated animate__fadeIn animate-delay-1">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 1" class="project-img">
+                        <div class="p-4">
+                            <h3>E-commerce Platform</h3>
+                            <div class="project-tags">
+                                <span class="project-tag">React</span>
+                                <span class="project-tag">Node.js</span>
+                                <span class="project-tag">MongoDB</span>
+                            </div>
+                            <p>A full-featured online store with product management, cart functionality, and secure checkout.</p>
+                            <a href="#" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 animate__animated animate__fadeIn animate-delay-2">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 2" class="project-img">
+                        <div class="p-4">
+                            <h3>Portfolio Dashboard</h3>
+                            <div class="project-tags">
+                                <span class="project-tag">Vue.js</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Chart.js</span>
+                            </div>
+                            <p>Interactive dashboard for creative professionals to showcase their work and analytics.</p>
+                            <a href="#" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 animate__animated animate__fadeIn animate-delay-3">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 3" class="project-img">
+                        <div class="p-4">
+                            <h3>Health Tracker App</h3>
+                            <div class="project-tags">
+                                <span class="project-tag">React Native</span>
+                                <span class="project-tag">GraphQL</span>
+                                <span class="project-tag">AWS</span>
+                            </div>
+                            <p>Mobile application for tracking fitness goals, nutrition, and health metrics with data visualization.</p>
+                            <a href="#" class="btn btn-sm btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4 animate__animated animate__fadeIn">
+                <a href="#" class="btn btn-outline-primary">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">Get In Touch</h2>
+            <p class="text-center mb-5 animate__animated animate__fadeIn">Have a project in mind or want to collaborate? I'd love to hear from you!</p>
+            
+            <div class="row">
+                <div class="col-lg-6 mb-5 mb-lg-0 animate__animated animate__fadeIn">
+                    <div class="contact-form">
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Subject">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 animate__animated animate__fadeIn animate-delay-1">
+                    <h3 class="mb-4">Contact Information</h3>
+                    <p>Feel free to reach out through any of these channels. I typically respond within 24 hours.</p>
+                    
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="fas fa-envelope me-3 mt-1 text-primary"></i>
+                        <div>
+                            <h5 class="mb-1">Email</h5>
+                            <a href="mailto:sirtheprogrammer@gmail.com" class="text-decoration-none">sirtheprogrammer@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="fas fa-phone me-3 mt-1 text-primary"></i>
+                        <div>
+                            <h5 class="mb-1">Phone</h5>
+                            <p>+1 (123) 456-7890</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-map-marker-alt me-3 mt-1 text-primary"></i>
+                        <div>
+                            <h5 class="mb-1">Location</h5>
+                            <p>San Francisco, CA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5">
+                        <h5 class="mb-3">Follow Me</h5>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="footer theme-light">
-        <p>&copy; 2025 sirtheprogrammer. All Rights Reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <a class="navbar-brand text-white" href="#">sirtheprogrammer</a>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">&copy; 2025 sirtheprogrammer. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         function toggleTheme() {
             document.body.classList.toggle('theme-dark');
-            document.body.classList.toggle('theme-light');
+            
+            // Change theme icon
+            const themeBtn = document.querySelector('[onclick="toggleTheme()"]');
+            if (document.body.classList.contains('theme-dark')) {
+                themeBtn.innerHTML = '<i class="fas fa-sun"></i> Theme';
+            } else {
+                themeBtn.innerHTML = '<i class="fas fa-moon"></i> Theme';
+            }
         }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+                if (document.body.classList.contains('theme-dark')) {
+                    navbar.style.backgroundColor = 'rgba(26, 26, 46, 0.95)';
+                } else {
+                    navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                }
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+                if (document.body.classList.contains('theme-dark')) {
+                    navbar.style.backgroundColor = 'rgba(26, 26, 46, 0.9)';
+                } else {
+                    navbar.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+                }
+            }
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate__animated');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate__fadeIn');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 
