@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - sirtheprogrammer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 56px;
+        }
+
+        .jumbotron {
+            background-color: #f7f7f7;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hobby {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            margin: 0.5rem;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+
+        .hobby:hover {
+            transform: scale(1.05);
+        }
+
+        .theme-dark {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .theme-light {
+            background-color: #f8f9fa;
+            color: black;
+        }
+
+        .theme-dark .navbar,
+        .theme-dark .footer {
+            background-color: #212529;
+        }
+
+        .footer {
+            padding: 1rem 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="theme-light">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">sirtheprogrammer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hobbies">Hobbies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-secondary" onclick="toggleTheme()">Toggle Theme</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <h1 class="display-4">Hello, I'm sirtheprogrammer</h1>
+            <p class="lead">Welcome to my portfolio website</p>
+        </div>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hi, I'm sirtheprogrammer. I'm passionate about programming, web designing, graphic design, and many other hobbies. I love to create and innovate! I'm always eager to learn new technologies and take on new challenges.</p>
+        </section>
+
+        <!-- Hobbies Section -->
+        <section id="hobbies">
+            <h2>My Hobbies</h2>
+            <div class="row">
+                <div class="col-md-4 hobby">
+                    <i class="fas fa-code fa-3x"></i>
+                    <h3>Programming</h3>
+                    <p>I enjoy solving problems and building applications that make a difference.</p>
+                </div>
+                <div class="col-md-4 hobby">
+                    <i class="fas fa-paint-brush fa-3x"></i>
+                    <h3>Web Designing</h3>
+                    <p>Creating visually appealing and user-friendly websites is my passion.</p>
+                </div>
+                <div class="col-md-4 hobby">
+                    <i class="fas fa-pencil-alt fa-3x"></i>
+                    <h3>Graphic Design</h3>
+                    <p>I love designing graphics that communicate ideas and captivate audiences.</p>
+                </div>
+                <!-- Add more hobbies here -->
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>My Projects</h2>
+            <div class="row">
+                <!-- Project 1 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="project1.jpg" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 1</h5>
+                            <p class="card-text">Description of project 1.</p>
+                            <a href="#" class="btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="project2.jpg" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 2</h5>
+                            <p class="card-text">Description of project 2.</p>
+                            <a href="#" class="btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="project3.jpg" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Project 3</h5>
+                            <p class="card-text">Description of project 3.</p>
+                            <a href="#" class="btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>You can reach me at <a href="mailto:sirtheprogrammer@gmail.com">sirtheprogrammer@gmail.com</a></p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer theme-light">
+        <p>&copy; 2025 sirtheprogrammer. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('theme-dark');
+            document.body.classList.toggle('theme-light');
+        }
+    </script>
+</body>
+
+</html>
